@@ -18,13 +18,13 @@ ro.ril.ecc.HTC-ITA=112,911
 ro.ril.ecc.HTC-EastEurope=112
 ro.ril.enable.a52.HTC-ITA=1
 ro.ril.enable.a53.HTC-ITA=1
-ro.ril.enable.a52=0
+ro.ril.enable.a52=1
 ro.ril.enable.a53=1
 ro.ril.hsdpa.category=8
 ro.ril.hsxpa=1
 ro.ril.fast.dormancy.rule=1
 ro.ril.disable.fd.plmn.prefix=23402,23410,23411,23420,27202
-ro.ril.enable.managed.roaming=1
+ro.ril.enable.managed.roaming=0
 ro.ril.gprsclass=10
 ro.ril.oem.nosim.ecclist=911,112,999,000,08,118,120,122,110,119,995
 ro.ril.emc.mode=2
@@ -35,7 +35,7 @@ ro.ril.update.acoustic.table = 1
 ro.ril.avoid.pdp.overlap = 1
 ro.telephony.default_network = 0
 ro.ril.enable.sdr=1
-ro.ril.enable.amr.wideband=1
+ro.ril.enable.amr.wideband=0
 ro.ril.enable.r8fd=0
 ro.ril.enable.pre_r8fd=1
 ro.ril.fd.pre_r8_tout.scr_off=2
@@ -63,7 +63,7 @@ ro.ril.enable.nitz = 3
 ro.ril.def.agps.mode = 2
 
 # For HSDPA low throughput
-ro.ril.disable.power.collapse = 1
+ro.ril.disable.power.collapse = 0
 
 # Modify MTU from 1500 to 1472 on 3G network
 ro.ril.set.mtusize = 1472
@@ -72,9 +72,9 @@ ro.ril.set.mtu1472 = 1
 # Time between scans in seconds. Keep it high to minimize battery drain.
 # This only affects the case in which there are remembered access points,
 # but none are in range.
-wifi.supplicant_scan_interval=180
-wifi.interface=eth0
-wifi.softap.interface=eth0
+wifi.supplicant_scan_interval=16
+wifi.interface=wlan0
+wifi.softap.interface=wlan0
  
 # density in DPI of the LCD of this board. This is used to scale the UI
 # appropriately. If this property is not defined, the default value is 160 dpi.
@@ -119,13 +119,13 @@ media.stagefright.enable-qcp=true
 media.stagefright.enable-meta=false
 ro.max.fling_velocity=4000
 com.qc.hdmi_out=false
-debug.camcorder.disablemeta=1
+debug.camcorder.disablemeta=0
 debug.qctwa.statusbar=1
 debug.qctwa.preservebuf=1
 debug.gr.numframebuffers=3
 debug.qc.hardware=true
-debug.enabletr=false
-debug.hwui.render_dirty_regions=false
+debug.enabletr=true
+debug.hwui.render_dirty_regions=true
 debug.sf.hw=1
 ro.media.enc.jpeg.quality=100
 ro.staticwallpaper.pixelformat=RGB_565
@@ -136,29 +136,28 @@ debug.egl.recordable.rgba8888=1
 debug.gralloc.map_fb_memory=1
 
 # Video Acceleration
-video.accelerate.hw=1
+video.accelerate.hw=0
 debug.performance.tuning=1
 
 # Low Power Audio
-lpa.decode=false
+lpa.decode=true
 audio.decoder_override_check=true
-use.non-omx.mp3.decoder=false
-use.non-omx.aac.decoder=false
+use.non-omx.mp3.decoder=true
+use.non-omx.aac.decoder=true
 
 # Dalvik
 dalvik.vm.heapsize=64m
 ro.zram.default=0
-ro.sys.fw.bg_apps_limit=4
+ro.sys.fw.bg_apps_limit=0
 sys.mem.max_hidden_apps=7
-dalvik.vm.checkjni=0
-dalvik.vm.checkjni=false
-dalvik.vm.dexopt-data-only=1
-dalvik.vm.dexopt-flags=v=a,o=v,m=y,u=y
+dalvik.vm.checkjni=true
+dalvik.vm.dexopt-data-only=0
+dalvik.vm.dexopt-flags=v=a,o=v,m=y,u=n
 dalvik.vm.execution-mode=int:jit
-dalvik.vm.verify-bytecode=false
+dalvik.vm.verify-bytecode=true
 dalvik.vm.lockprof.threshold=500
-dalvik.vm.heaptargetutilization=0.25
-dalvik.vm.debug.alloc=0
+dalvik.vm.heaptargetutilization=0.21
+dalvik.vm.debug.alloc=1
 
 # Misc
 ro.use_data_netmgrd=true
@@ -167,7 +166,7 @@ httplive.enable.discontinuity=true
 ro.config.sync=yes
 ro.phone_storage=0
 ro.kernel.android.checkjni=0
-ro.fuse_sdcard=true
+ro.fuse_sdcard=false
 persist.sys.strictmode.visual=0
 persist.sys.strictmode.disable=1
 persist.webview.provider=classic
@@ -180,7 +179,7 @@ ro.ril.hsxpa=1
 ro.ril.gprsclass=10
 mobiledata.interfaces=pdp0,gprs,ppp0
 DEVICE_PROVISIONED=1
-ro.telephony.call_ring.delay=0
+ro.telephony.call_ring.delay=3000
 ro.ril.disable.power.collapse=0
 DEVICE_PROVISIONED=1
 
